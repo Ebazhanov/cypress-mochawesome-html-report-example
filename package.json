@@ -11,7 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "cy:run": "cypress run --headless --browser chrome"
+    "cy:run": "yarn start & cypress run --headless --browser chrome"
   },
   "eslintConfig": {
     "extends": [

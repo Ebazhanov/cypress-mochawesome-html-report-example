@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Create merged-report directory
           when: always
-          command: mkdir cypress/merged-report/
+          command: mkdir cypress/merged-report
       - run:
           name: Merge mochawesome jsons
           when: always
