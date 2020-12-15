@@ -1,1 +1,1 @@
-# cypress-mochawesome-example
+# Mochawesome-report-example

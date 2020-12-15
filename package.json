@@ -1,0 +1,40 @@
+{
+  "name": "cypress-mochawesome-example",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "cy:run": "cypress run --headless --browser chrome"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cypress": "^6.1.0",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "mochawesome-merge": "2.1.0"
+  }
+}
