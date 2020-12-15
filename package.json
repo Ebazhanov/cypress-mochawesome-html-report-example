@@ -35,6 +35,7 @@
     "cypress": "^6.1.0",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1",
-    "mochawesome-merge": "2.1.0"
+    "mochawesome-merge": "2.1.0",
+    "mochawesome-report-generator": "^5.1.0"
   }
 }

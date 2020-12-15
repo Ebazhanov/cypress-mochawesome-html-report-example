@@ -1,35 +1,30 @@
 version: 2.1
 
-jobs:
+orbs:
+  cypress: cypress-io/cypress@1.26.0
+
+workflows:
   build:
-    docker:
-      - image: circleci/node:latest-browsers
-        environment:
-          TERM: xterm
-    working_directory: /tmp/workspace
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-            - v1-deps-{{ .Branch }}
-            - v1-deps
-      - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-          paths:
-            - ~/.cache  ## cache both yarn and Cypress!
-      - run: yarn cy:run
-      - run:
-          name: Create merged-report directory
-          when: always
-          command: mkdir cypress/merged-report
-      - run:
-          name: Merge mochawesome jsons
-          when: always
-          command: npx mochawesome-merge --reportDir cypress/results > cypress/merged-report/merged-report.json
-      - store_artifacts:
-          name: Uploading mochawesome-merged-report.json
-          path: cypress/merged-report
+    jobs:
+      - cypress/run:
+          install-command: yarn install --frozen-lockfile
+          start: yarn start
+          wait-on: 'http://localhost:3000'
+          post-steps:
+            - run:
+                name: Create merged-report Directory
+                command: mkdir cypress/merged-report/
+            - run:
+                name: Merge mochawesome jsons in one file
+                when: always
+                command: npx mochawesome-merge --reportDir cypress/results > cypress/merged-report/merged-report.json
+            - run:
+                name: Generate mochawesome html report
+                when: always
+                command: npx marge cypress/merged-report/merged-report.json -o cypress/mochawesome-html-report
+            - store_artifacts:
+                name: Uploading mochawesome-merged-report.json
+                path: cypress/merged-report
+            - store_artifacts:
+                name: Uploading mochawesome-html-report
+                path: cypress/mochawesome-html-report
