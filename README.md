@@ -71,7 +71,8 @@ workflows:
 
 ```
 
-## Demo: [![CircleCI](https://circleci.com/gh/Ebazhanov/cypress-mochawesome-html-report-example.svg?style=svg)](https://circleci.com/gh/Ebazhanov/cypress-mochawesome-html-report-example)
+## Demo: [![CircleCI](https://app.circleci.com/gh/Ebazhanov/cypress-mochawesome-html-report-example.svg?style=svg)](https://circleci.com/gh/Ebazhanov/cypress-mochawesome-html-report-example)
+<img src="https://monosnap.com/image/pedW2E9lcIhVSxcYrmD6Fobau4ppJ8"/>
 <img src="https://monosnap.com/image/lAyFBFUXtn5FNsvmw4gEWfMytTC4ql"/>
 
 ## ToDos: 
